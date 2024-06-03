@@ -1,4 +1,29 @@
 {
-    "users": [],
-    "tasks": []
+  "users": [
+    {
+      "id": "cad8",
+      "name": "rafael meza",
+      "email": "rmeza@example.com",
+      "password": "U2FsdGVkX18lTEA/DZcxVrcGbBBgVED1TBXo9OD145Y="
+    },
+    {
+      "id": "d247",
+      "name": "camilo funez",
+      "email": "camfez@example.com",
+      "password": "U2FsdGVkX18Hor8lU+4fiWJ9UFn0Sb3kJqkACFk/r3c="
+    },
+    {
+      "id": "b227",
+      "name": "orion",
+      "email": "orion@example.com",
+      "password": "U2FsdGVkX19jKZ85cxm+yYqWwOCKT/Ge2uFuDQHTK4Y="
+    },
+    {
+      "id": "bc8a",
+      "name": "orion",
+      "email": "orion@example.com",
+      "password": "U2FsdGVkX1+4II1BvSNnKtIQqUKHXHm/AyH4JNr0aDs="
+    }
+  ],
+  "tasks": []
 }

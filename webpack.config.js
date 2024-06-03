@@ -10,7 +10,9 @@ module.exports = {
     filename: 'bundle.js', // Nombre del archivo de salida
     publicPath: '/', // Ruta relativa para los recursos
     clean: true // Limpia el directorio de salida antes de generar el bundle
-  },
+    
+  }, 
+  devtool: 'source-map',
   module: { // Configuración de los módulos, los modulos son: loaders, rules, etc.
     rules: [ // Reglas para los módulos
       {
