@@ -1,4 +1,4 @@
-import styles from './index'
+import styles  from '../navbar-layout/navbar-layout.styles.css'
 import { navigateTo } from '../../Router';
 export function NavbarLayout(pageContent, logic){
     
@@ -8,19 +8,21 @@ export function NavbarLayout(pageContent, logic){
     `
 
     root.innerHTML = `
-        <nav>
-            <a  href="/tasks">Task</a>
-            <a  href="/profile">Profile</a>
-            <a  href="/logout">Logout</a>
+        <nav class="${styles.nav}">
+            <li class="${styles.nav_left}"><a  href="/tasks">Task</a></li>
+            <li class="${styles.nav_left}><a  href="/profile">Profile</a></li>
+            <li class="${styles.nav_left}></li><a  href="/logout">user</a></li>
+
             ${logout}
         </nav>
 
         ${pageContent}
-    `
+    `;
     logic();
 
     const $logoutButton = root.querySelector('#logout');
-    $logoutButton.addEventListener('click', () => {
+    $logoutButton.addEventListener('click', e => {
+        e.defaultPrevented
         localStorage.removeItem('token');
         navigateTo('/login');
     });

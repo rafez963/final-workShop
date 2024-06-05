@@ -26,6 +26,8 @@ export function Router(){
         publicRoutes.scene()
         return
         
+
+        
     } else if (privateRoutes) {
         if (localStorage.getItem('token')) {
             const {pageContent, logic} = privateRoutes.scene();

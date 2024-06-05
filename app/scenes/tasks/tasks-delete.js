@@ -2,7 +2,7 @@ import { navigateTo } from '../../Router';
 import styles from '../tasks/tasks.styles.css';
 import edit from './tasks-edit.scene';
 
-export function TasksScene() {
+export function TasksSceneDelete() {
     const pageContent = `
         <form>
             <input type="text" placeholder="Titulo de tarea..." id="title">

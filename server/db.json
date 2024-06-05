@@ -25,5 +25,20 @@
       "password": "U2FsdGVkX1+4II1BvSNnKtIQqUKHXHm/AyH4JNr0aDs="
     }
   ],
-  "tasks": []
+  "tasks": [
+    {
+      "id": "388a",
+      "title": "barrer casa",
+      "description": "barrer casa con una escoba",
+      "priority": "HIGH",
+      "date": "2024-06-04"
+    },
+    {
+      "id": "a5fd",
+      "title": "workShopFinal",
+      "description": "desarrollar todos lo items del workShop final",
+      "priority": "HIGH",
+      "date": "2024-06-18"
+    }
+  ]
 }

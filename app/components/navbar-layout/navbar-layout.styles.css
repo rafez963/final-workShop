@@ -1,69 +1,28 @@
-/* Estilo del contenedor del nav */
-nav {
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    padding: 1em;
+    width: 100%;
+    height: 45px;
+    background-color: #57cef1; /* Puedes cambiar esto por el color que prefieras */
+    padding: 0 20px; /* Padding opcional para un mejor aspecto */
 }
 
-/* Estilo del contenedor de enlaces a la izquierda */
-.nav-left a {
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-family: Arial, sans-serif;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-/* Estilo del botón de logout a la derecha */
-.nav-right {
+.nav_left {
     display: flex;
-    align-items: center;
+    gap: 15px;
+    list-style: none;
 }
 
-.nav-right #logout {
-    color: #f2f2f2;
-    background-color: #4CAF50;
-    border: none;
-    padding: 14px 16px;
-    text-align: center;
+.nav_left li a {
+    color: white; /* Cambia esto según el diseño */
     text-decoration: none;
-    font-family: Arial, sans-serif;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Estilo al pasar el cursor sobre los enlaces */
-.nav-left a:hover,
-.nav-right #logout:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Estilo para el enlace activo */
-.nav-left a.active {
-    background-color: #4CAF50;
+#logout {
+    background-color: #f00; /* Cambia esto por el color que prefieras */
     color: white;
-}
-
-/* Estilo para dispositivos móviles */
-@media screen and (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-left,
-    .nav-right {
-        width: 100%;
-    }
-
-    .nav-left a,
-    .nav-right #logout {
-        width: 100%;
-        text-align: left;
-        padding: 14px 0;
-    }
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
