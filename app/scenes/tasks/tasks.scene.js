@@ -1,9 +1,9 @@
-import { navigateTo } from '../../Router';
-import styles from '../tasks/tasks.styles.css';
-import edit from './tasks-edit.scene';
+import { navigateTo } from "../../Router";
+import styles from "../tasks/tasks.styles.css";
+import edit from "./tasks-edit.scene";
 
 export function TasksScene() {
-    const pageContent = `
+  const pageContent = `
         <form>
             <input type="text" placeholder="Titulo de tarea..." id="title">
             <input type="text" placeholder="Descripcion" id="description">
@@ -14,20 +14,20 @@ export function TasksScene() {
                 <option value="LOW">Baja</option>
             </select>
             <input type="date" id="date"/>
-            <input type="submit" />
+            <input type="submit" value="Crear Tarea"/>
         </form>    
         <div id="all-tasks"></div>
     `;
 
-    const logic = async () => {
-        const $form = document.getElementsByTagName('form')[0];
-        const $tasksContainer = document.getElementById('all-tasks');
+  const logic = async () => {
+    const $form = document.getElementsByTagName("form")[0];
+    const $tasksContainer = document.getElementById("all-tasks");
 
-        const allTasks = await fetch('http://localhost:3000/tasks');
-        const responseJson = await allTasks.json();
-        
-        responseJson.forEach(task => {
-            $tasksContainer.innerHTML += `
+    const allTasks = await fetch("http://localhost:3000/tasks");
+    const responseJson = await allTasks.json();
+
+    responseJson.forEach((task) => {
+      $tasksContainer.innerHTML += `
                 <div class="${styles.card}">
                     <h4>Tarea: </h4>
                     <p>${task.title}</p>
@@ -38,66 +38,72 @@ export function TasksScene() {
                     <button>Vista Previa</button>
                 </div>
             `;
-        });
+    });
 
-        const $editBtns = document.getElementsByClassName('edit-class');
-        for (let $editBtn of $editBtns) {
-            $editBtn.addEventListener('click', () => {
-                navigateTo(`/tasks/edit?taskId=${$editBtn.getAttribute('data-id')}`);
-            });
+    const $editBtns = document.getElementsByClassName("edit-class");
+    for (let $editBtn of $editBtns) {
+      $editBtn.addEventListener("click", () => {
+        navigateTo(`/tasks/edit?taskId=${$editBtn.getAttribute("data-id")}`);
+      });
+    }
+
+    const $deleteBtns = document.getElementsByClassName("delete-class");
+    for (let $deleteBtn of $deleteBtns) {
+      $deleteBtn.addEventListener("click", async () => {
+        const taskId = $deleteBtn.getAttribute("data-id");
+        const confirmed = confirm(
+          `¿Estás seguro de que deseas eliminar esta tarea?`
+        );
+        if (confirmed) {
+          const response = await fetch(
+            `http://localhost:3000/tasks/${taskId}`,
+            {
+              method: "DELETE",
+            }
+          );
+          if (response.ok) {
+            alert("Tarea eliminada con éxito");
+            // Eliminar la tarea del DOM
+            const taskCard = $deleteBtn.closest(`.${styles.card}`);
+            taskCard.remove();
+          } else {
+            alert("Error al eliminar la tarea");
+          }
         }
+      });
+    }
 
-        const $deleteBtns = document.getElementsByClassName('delete-class');
-        for (let $deleteBtn of $deleteBtns) {
-            $deleteBtn.addEventListener('click', async () => {
-                const taskId = $deleteBtn.getAttribute('data-id');
-                const confirmed = confirm(`¿Estás seguro de que deseas eliminar esta tarea?`);
-                if (confirmed) {
-                    const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
-                        method: 'DELETE',
-                    });
-                    if (response.ok) {
-                        alert('Tarea eliminada con éxito');
-                        // Eliminar la tarea del DOM
-                        const taskCard = $deleteBtn.closest(`.${styles.card}`);
-                        taskCard.remove();
-                    } else {
-                        alert('Error al eliminar la tarea');
-                    }
-                }
-            });
-        }
+    $form.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-        $form.addEventListener('submit', (e) => {
-            e.preventDefault();
+      const $inputTitle = document.getElementById("title").value;
+      const $inputDescription = document.getElementById("description").value;
+      const $inputSelect = document.querySelector('[name="priority"]').value;
+      const $inputDate = document.getElementById("date").value;
 
-            const $inputTitle = document.getElementById('title').value;
-            const $inputDescription = document.getElementById('description').value;
-            const $inputSelect = document.querySelector('[name="priority"]').value;
-            const $inputDate = document.getElementById('date').value;
-
-            fetch('http://localhost:3000/tasks', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    title: $inputTitle,
-                    description: $inputDescription,
-                    priority: $inputSelect,
-                    date: $inputDate,
-                })
-            }).then(response => response.json())
-            .then(jsonObject => {
-                console.log(jsonObject);
-                alert('Tarea creada con éxito');
-                navigateTo('/tasks');
-            });
+      fetch("http://localhost:3000/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: $inputTitle,
+          description: $inputDescription,
+          priority: $inputSelect,
+          date: $inputDate,
+        }),
+      })
+        .then((response) => response.json())
+        .then((jsonObject) => {
+          console.log(jsonObject);
+          alert("Tarea creada con éxito");
+          navigateTo("/tasks");
         });
-    };
+    });
+  };
 
-    return {
-        pageContent,
-        logic
-    };
+  return {
+    pageContent,
+    logic,
+  };
 }
