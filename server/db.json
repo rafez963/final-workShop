@@ -27,11 +27,11 @@
   ],
   "tasks": [
     {
-      "id": "388a",
-      "title": "barrer casa",
+      "title": "barrer casa el chanclas",
       "description": "barrer casa con una escoba",
       "priority": "HIGH",
-      "date": "2024-06-04"
+      "date": "2024-06-04",
+      "id": "388a"
     },
     {
       "id": "a5fd",
@@ -39,6 +39,13 @@
       "description": "desarrollar todos lo items del workShop final",
       "priority": "HIGH",
       "date": "2024-06-18"
+    },
+    {
+      "id": "4ee4",
+      "title": "hacer pastas",
+      "description": "comprar las pasatas en el supermercado",
+      "priority": "HIGH",
+      "date": "2024-06-10"
     }
   ]
 }
