@@ -129,7 +129,8 @@ export function TasksScene() {
                 throw new Error(`HTTP error! status: ${allTasks.status}`);
             }
             const responseJson = await allTasks.json();
-            
+            //recorremos la informacion que se encuentra en la informacion que se optiene
+            //aparte del html
             responseJson.forEach(task => {
                 $tasksContainer.innerHTML += `
                     <div class="${styles.card}">
