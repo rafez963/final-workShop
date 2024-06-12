@@ -23,11 +23,21 @@
       "name": "orion",
       "email": "orion@example.com",
       "password": "U2FsdGVkX1+4II1BvSNnKtIQqUKHXHm/AyH4JNr0aDs="
+    },
+    {
+      "id": "6caf",
+      "name": "edut",
+      "email": "edut@gmail.com",
+      "password": "U2FsdGVkX1+SPzd/9w8imb2JDwIzVLesasThfN+kwcY="
     }
   ],
   "tasks": [
     {
+<<<<<<< HEAD
       "title": "barrer casa el chanclas",
+=======
+      "title": "barrer las tres casa",
+>>>>>>> f79e5fe1292456e5a2628d3025fd5095b20f63c1
       "description": "barrer casa con una escoba",
       "priority": "HIGH",
       "date": "2024-06-04",
@@ -41,11 +51,19 @@
       "date": "2024-06-18"
     },
     {
+<<<<<<< HEAD
       "id": "4ee4",
       "title": "hacer pastas",
       "description": "comprar las pasatas en el supermercado",
       "priority": "HIGH",
       "date": "2024-06-10"
+=======
+      "id": "a684",
+      "title": "realizar un carrera",
+      "description": "viajar a jardin para conocer la ruta",
+      "priority": "HIGH",
+      "date": "2024-06-26"
+>>>>>>> f79e5fe1292456e5a2628d3025fd5095b20f63c1
     }
   ]
 }
